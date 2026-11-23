@@ -357,7 +357,7 @@
     function frame() {
       if (!svg) return;
       if (variant === "band") {
-        svg.setAttribute("viewBox", innerWidth < 760 ? "0 120 1600 760" : "0 280 1600 600");
+        svg.setAttribute("viewBox", innerWidth <= 760 ? "0 0 1600 760" : "0 280 1600 600");
         svg.setAttribute("preserveAspectRatio", "xMaxYMin slice");
       } else {
         const tall = innerWidth / innerHeight < 0.85;
@@ -379,9 +379,35 @@
       }
     }
 
+    // keep the release date sitting just above the treeline, whatever the screen shape
+    const TREETOPS = 545;                         // highest point of the far shore, in scene units
+    const heroText = variant === "hero" && host.parentElement.querySelector(".hero__text");
+    const heroDate = heroText && heroText.querySelector(".hero__date");
+    const heroCover = variant === "hero" && host.parentElement.querySelector(".hero__cover");
+    function placeHeroText() {
+      if (!heroDate || !svg) return;
+      heroText.style.top = "";                    // start from the designed position
+      if (heroCover) heroCover.style.top = "";
+      const ctm = svg.getScreenCTM();
+      if (!ctm) return;
+      const heroTop = host.parentElement.getBoundingClientRect().top;
+      const trees = new DOMPoint(0, TREETOPS).matrixTransform(ctm).y - heroTop;
+      const designed = heroText.offsetTop;
+      const dateBottom = heroDate.offsetTop + heroDate.offsetHeight;
+      const navH = document.querySelector(".nav")?.offsetHeight || 70;
+      const fit = trees - dateBottom - 12;        // highest top that keeps the date clear
+      if (fit < designed) {
+        const top = Math.max(navH + 6, fit);
+        heroText.style.top = top + "px";
+        if (heroCover) heroCover.style.top = Math.max(navH + 6, heroCover.offsetTop - (designed - top)) + "px";
+      }
+    }
+
     let shown = root.dataset.time = currentTime();
     paint(shown);
-    addEventListener("resize", frame);
+    placeHeroText();
+    addEventListener("resize", () => { frame(); placeHeroText(); });
+    if (document.fonts) document.fonts.ready.then(placeHeroText);
     setInterval(() => {
       const t = currentTime();
       if (t !== shown) { shown = root.dataset.time = t; paint(t); }
@@ -419,6 +445,20 @@
 
   // ---------- nav gains a backdrop once the page scrolls past the painting ----------
   const nav = document.querySelector(".nav");
+
+  // ---------- phone menu: the three-line button opens and closes the links ----------
+  const toggle = nav.querySelector(".nav__toggle");
+  if (toggle) {
+    const setOpen = (open) => {
+      nav.classList.toggle("nav--open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    };
+    toggle.addEventListener("click", () => setOpen(!nav.classList.contains("nav--open")));
+    nav.querySelectorAll(".nav__links a").forEach((a) => a.addEventListener("click", () => setOpen(false)));
+    addEventListener("keydown", (e) => { if (e.key === "Escape") setOpen(false); });
+    addEventListener("resize", () => { if (innerWidth > 760) setOpen(false); });
+  }
   const onScroll = () => nav.classList.toggle("nav--solid", scrollY > (host ? host.offsetHeight - 80 : 40));
   addEventListener("scroll", onScroll, { passive: true });
   onScroll();

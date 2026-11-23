@@ -606,3 +606,81 @@ em { font-style: italic; }
 
 /* About: larger, slightly heavier bio text */
 .about .prose p { font-size: clamp(1.3rem, 1.9vw, 1.55rem); line-height: 1.75; font-weight: 500; }
+
+/* ---------- Phone menu (three-line button) ---------- */
+.nav__toggle { display: none; }
+
+@media (max-width: 760px) {
+  .nav { align-items: center; padding-bottom: .9rem; }
+  .nav__toggle {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    margin: -6px -10px -6px 0;
+    padding: 0 10px;
+    border: 0;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+  }
+  .nav__toggle span {
+    display: block;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+    transition: transform .35s var(--ease), opacity .25s;
+  }
+  .nav--open .nav__toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav--open .nav__toggle span:nth-child(2) { opacity: 0; }
+  .nav--open .nav__toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .nav__links { display: none; }
+  .nav--open {
+    color: var(--ink);
+    background: color-mix(in srgb, var(--bg) 96%, transparent);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 12px 30px -18px rgba(15, 25, 35, .5);
+  }
+  .nav--open .nav__links {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    gap: 0;
+    margin-top: .6rem;
+    font-size: 1.25rem;
+  }
+  .nav--open .nav__links a {
+    padding: .95rem 0;
+    border-top: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+  }
+  .nav--open .nav__links a::after { display: none; }
+  .nav--open .nav__links a[aria-current="page"] { color: var(--accent); }
+
+  /* inner-page banner: shorter, with the title clear of the horizon */
+  .band { height: 380px; }
+  .band__text { top: 5.6rem; }
+  .band__title { font-size: clamp(2.6rem, 11.5vw, 3.4rem); line-height: 1; }
+}
+
+/* Phones: inner pages skip the painted banner and show just the page heading above the content. */
+@media (max-width: 760px) {
+  .band {
+    height: auto;
+    overflow: visible;
+    background: none;
+    color: var(--ink);
+    padding: calc(5.6rem + env(safe-area-inset-top, 0px)) var(--gutter) 0;
+  }
+  :root[data-time="night"] .band { background: none; }
+  .band [data-scene], .band .vignette { display: none; }
+  .band__text { position: static; max-width: none; animation: none; }
+  .band__text.haze::before { display: none; }
+  .band .eyebrow { color: var(--accent); opacity: 1; }
+  /* sized so the longest heading ("Other Work & Publicity") fits on one line */
+  .band__title { font-size: min(3.4rem, calc((100vw - 2 * var(--gutter)) / 9.6)); line-height: 1.05; white-space: nowrap; }
+  .band + .page { padding-top: 2rem; }
+}
