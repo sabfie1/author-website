@@ -8,8 +8,8 @@
   <script>(function(){var q=new URLSearchParams(location.search).get("time"),h=new Date().getHours();document.documentElement.dataset.time=q==="day"||q==="night"?q:h>=7&&h<19?"day":"night"})()</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Libre+Baskerville:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=13">
 </head>
 <body>
 
@@ -17,9 +17,9 @@
     <a class="nav__name" href="index.html">Sabrina Fielding</a>
     <nav class="nav__links" aria-label="Primary">
       <a href="#novel">The Novel</a>
-      <a href="work.html">Other Work</a>
       <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="work.html">Other Work</a>
+      <a href="contact.html">Contact &amp; Events</a>
     </nav>
   </header>
 
@@ -28,63 +28,114 @@
       <div data-scene="hero" aria-hidden="true"></div>
       <div class="vignette" aria-hidden="true"></div>
 
+      <a class="hero__cover" href="#novel" aria-label="About the novel">
+        <img src="images/cover.jpg" alt="The Way We Left Things by Sabrina Fielding, book cover" width="461" height="700">
+      </a>
+
       <div class="hero__text haze">
-        <p class="eyebrow">A Novel</p>
+        <p class="eyebrow">Debut Novel</p>
         <h1 id="title" class="hero__title">The Way<br>We Left <em>Things</em></h1>
         <p class="hero__author">Sabrina Fielding</p>
-        <p class="hero__caption">A summer at Culver Point, and the return eight years later.</p>
-        <p class="hero__meta">June 15, 2027 &middot; Ballantine &middot; Thousand Voices</p>
-        <a class="btn" href="#preorder">Pre-order</a>
+        <p class="hero__date">June 15, 2027</p>
+        <p class="hero__meta">Penguin &middot; Ballantine &times; Thousand Voices</p>
+        <a class="btn btn--primary" href="#novel">Learn more and pre&#8209;order</a>
       </div>
     </section>
 
     <section class="novel" id="novel" aria-labelledby="novel-title">
       <figure class="cover">
-        <div class="cover__art" aria-hidden="true">
-          <span class="cover__sun"></span>
-          <span class="cover__water"></span>
-        </div>
-        <figcaption>Cover to come</figcaption>
+        <img class="cover__art cover__img" src="images/cover.jpg" alt="The Way We Left Things by Sabrina Fielding, book cover" width="461" height="700">
       </figure>
 
       <div>
         <p class="eyebrow">The Novel</p>
-        <h2 id="novel-title" class="novel__title">Some summers never <em>quite</em> end.</h2>
+        <h2 id="novel-title" class="novel__title novel__title--tagline">An engrossing debut novel from Jenna Bush Hager’s venture, Thousand Voices</h2>
 
-        <div class="timelines">
-          <div class="timelines__part">
-            <p class="timelines__label">That summer</p>
-            <p>
-              Kari and her twin brother Matt are fresh out of high school when their family rents
-              a cottage in the lake town of Culver Point. It should be one last idyllic season
-              before college, until their father's temper turns the summer into something
-              else, and a local boy named Michael changes what Kari thinks she knows about love.
-            </p>
-          </div>
-          <div class="timelines__part">
-            <p class="timelines__label">Eight years later</p>
-            <p>
-              Kari is driving back to Culver Point for a family wedding, her devoted fiancé
-              beside her, knowing nothing of what happened there. The lake looks the same.
-              Nothing else is.
-            </p>
-          </div>
+        <div class="synopsis">
+          <p class="synopsis__lead"><strong>A young woman struggles to come to terms with the consequences of a first love that changed her forever—and led to the fracture of her family.</strong></p>
+          <p>
+            Kari and her twin brother, Matt, are fresh out of high school when their family rents a summer
+            cottage in the sleepy lake town of Culver Point. It should be an idyllic holiday before college
+            in the fall, but their volatile—and at times abusive—father quickly makes things unbearable.
+            Soon, Matt’s drinking too much and Kari is looking for any excuse to get out of the house. But
+            then she meets a local named Michael and finds herself instantly drawn to him. Before long,
+            they’re both unable to think of anything else but each other, and as they grow closer, so does
+            the possibility for everything to go wrong.
+          </p>
+          <p>
+            Years later, Kari is on her way back to Culver Point for the first time since that fateful summer
+            to attend a family wedding. She’s trying hard to keep her anxiety hidden from her devoted fiancé,
+            Jonathan, who knows nothing of her history in this place. Kari is now estranged from Matt, barely
+            speaking to her father, and tormented by memories of the way things ended with Michael and how
+            his actions forever impacted her family.
+          </p>
+          <p>
+            Then Matt reappears for the first time in years, unexpectedly joining their now-divorced parents,
+            Kari, and Jonathan for this supposedly happy occasion. Tension builds relentlessly as they all try
+            to avoid confronting the fallout of the last night they spent together in Culver Point all those
+            years ago—and find a way forward.
+          </p>
+          <p>
+            Told in alternating timelines, past and present collide in this moving story of the ripple effects
+            of first love and the repercussions of complicated family dynamics.
+          </p>
         </div>
-
-        <p class="novel__note">
-          A debut in two timelines about first love, a family's fracture, and the
-          long ripple of one summer, set against the Ontario lakeland.
-        </p>
 
         <div class="preorder" id="preorder">
           <p class="eyebrow">Pre-order</p>
-          <ul class="pill-list">
-            <li><a href="#">Bookshop.org</a></li>
-            <li><a href="#">Indigo</a></li>
-            <li><a href="#">Penguin Random House</a></li>
-            <li><a href="#">Barnes &amp; Noble</a></li>
-            <li><a href="#">Amazon</a></li>
-          </ul>
+          <div class="preorder__format">
+            <h3 class="preorder__type">Hardcover <span class="preorder__meta">$31.00 &middot; 272 pages</span></h3>
+            <ul class="pill-list">
+              <li><a href="https://www.amazon.com/gp/product/B0H16PSQ4Y?tag=randohouseinc7986-20" target="_blank" rel="noopener">Amazon</a></li>
+              <li><a href="https://barnesandnoble.sjv.io/c/128773/1894547/22009?subId1=PRHEFFDF5A7F1&amp;u=https%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9798217301867" target="_blank" rel="noopener">Barnes &amp; Noble</a></li>
+              <li><a href="https://www.tkqlhce.com/click-8373827-10747236?SID=PRHEFFDF5A7F1--9798217301867&amp;url=https://www.booksamillion.com/p/9798217301867" target="_blank" rel="noopener">Books A Million</a></li>
+              <li><a href="https://bookshop.org/a/2186/9798217301867?prhc=PRHEFFDF5A7F1" target="_blank" rel="noopener">Bookshop.org</a></li>
+              <li><a href="https://www.hudsonbooksellers.com/book/9798217301867?utm_source=prh&amp;utm_medium=affiliate&amp;utm_term=301&amp;utm_content=PRHEFFDF5A7F1--9798217301867&amp;utm_campaign=9798217301867" target="_blank" rel="noopener">Hudson Booksellers</a></li>
+              <li><a href="https://www.powells.com/book/-9798217301867?utm_source=randomhouse&amp;utm_campaign=randomhouse&amp;utm_content=PRHEFFDF5A7F1--9798217301867" target="_blank" rel="noopener">Powell&#x27;s</a></li>
+              <li><a href="https://goto.target.com/c/128773/81938/2092?subId1=PRHEFFDF5A7F1--9798217301867&amp;u=https%3A%2F%2Fwww.target.com%2Fs%3FsearchTerm%3D9798217301867" target="_blank" rel="noopener">Target</a></li>
+              <li><a href="https://goto.walmart.com/c/128773/565706/9383?subId1=PRHEFFDF5A7F1&amp;veh=aff&amp;sourceid=imp_000011112222333344&amp;u=https%3A%2F%2Fwww.walmart.com%2Fsearch%3Fquery%3D9798217301867" target="_blank" rel="noopener">Walmart</a></li>
+            </ul>
+          </div>
+          <div class="preorder__format">
+            <h3 class="preorder__type">Large Print <span class="preorder__meta">$33.00 &middot; 461 pages</span></h3>
+            <ul class="pill-list">
+              <li><a href="https://www.amazon.com/gp/product/B0H1PPYRQ1?tag=randohouseinc7986-20" target="_blank" rel="noopener">Amazon</a></li>
+              <li><a href="https://barnesandnoble.sjv.io/c/128773/1894547/22009?subId1=PRHEFFDF5A7F1&amp;u=https%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9798217515097" target="_blank" rel="noopener">Barnes &amp; Noble</a></li>
+              <li><a href="https://www.tkqlhce.com/click-8373827-10747236?SID=PRHEFFDF5A7F1--9798217515097&amp;url=https://www.booksamillion.com/p/9798217515097" target="_blank" rel="noopener">Books A Million</a></li>
+              <li><a href="https://bookshop.org/a/2186/9798217515097?prhc=PRHEFFDF5A7F1" target="_blank" rel="noopener">Bookshop.org</a></li>
+              <li><a href="https://www.hudsonbooksellers.com/book/9798217515097?utm_source=prh&amp;utm_medium=affiliate&amp;utm_term=301&amp;utm_content=PRHEFFDF5A7F1--9798217515097&amp;utm_campaign=9798217515097" target="_blank" rel="noopener">Hudson Booksellers</a></li>
+              <li><a href="https://www.powells.com/book/-9798217515097?utm_source=randomhouse&amp;utm_campaign=randomhouse&amp;utm_content=PRHEFFDF5A7F1--9798217515097" target="_blank" rel="noopener">Powell&#x27;s</a></li>
+              <li><a href="https://goto.target.com/c/128773/81938/2092?subId1=PRHEFFDF5A7F1--9798217515097&amp;u=https%3A%2F%2Fwww.target.com%2Fs%3FsearchTerm%3D9798217515097" target="_blank" rel="noopener">Target</a></li>
+              <li><a href="https://goto.walmart.com/c/128773/565706/9383?subId1=PRHEFFDF5A7F1&amp;veh=aff&amp;sourceid=imp_000011112222333344&amp;u=https%3A%2F%2Fwww.walmart.com%2Fsearch%3Fquery%3D9798217515097" target="_blank" rel="noopener">Walmart</a></li>
+            </ul>
+          </div>
+          <div class="preorder__format">
+            <h3 class="preorder__type">Ebook <span class="preorder__meta">272 pages</span></h3>
+            <ul class="pill-list">
+              <li><a href="https://www.amazon.com/gp/product/B0H176J397?tag=randohouseinc7986-20" target="_blank" rel="noopener">Amazon</a></li>
+              <li><a href="https://goto.applebooks.apple/9798217301874?at=11l3IH&amp;ct=PRHEFFDF5A7F1--9798217301874" target="_blank" rel="noopener">Apple Books</a></li>
+              <li><a href="https://barnesandnoble.sjv.io/c/128773/1894547/22009?subId1=PRHEFFDF5A7F1&amp;u=https%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9798217301874" target="_blank" rel="noopener">Barnes &amp; Noble</a></li>
+              <li><a href="https://www.tkqlhce.com/click-8373827-10747236?SID=PRHEFFDF5A7F1--9798217301874&amp;url=https://www.booksamillion.com/p/9798217301874" target="_blank" rel="noopener">Books A Million</a></li>
+              <li><a href="https://play.google.com/store/books/details?id=ISBN_9798217301874&amp;PAffiliateID=1011ld4r&amp;PCamRefID=PRHEFFDF5A7F1" target="_blank" rel="noopener">Google Play</a></li>
+              <li><a href="https://click.linksynergy.com/link?id=VD9*lkiWNd8&amp;offerid=258185.12829781935712206&amp;type=2&amp;u1=PRHEFFDF5A7F1--9798217301874&amp;murl=https%3A%2F%2Fwww.kobo.com%2Fsearch%3Fquery%3D9798217301874" target="_blank" rel="noopener">Kobo</a></li>
+            </ul>
+          </div>
+          <div class="preorder__format">
+            <h3 class="preorder__type">Audiobook <span class="preorder__meta">Download &middot; 9 hours</span></h3>
+            <ul class="pill-list">
+              <li><a href="https://goto.applebooks.apple/9798217418312?at=11l3IH&amp;ct=PRHEFFDF5A7F1--9798217418312" target="_blank" rel="noopener">Apple Books</a></li>
+              <li><a href="https://www.amazon.com/gp/product/B0H3SRMQZP?tag=randohouseinc7986-20" target="_blank" rel="noopener">Audible</a></li>
+              <li><a href="https://www.anrdoezrs.net/click-8373827-11099382?SID=PRHEFFDF5A7F1--9798217418312&amp;url=https://www.audiobooks.com/audiobook/9798217418312" target="_blank" rel="noopener">audiobooks.com</a></li>
+              <li><a href="https://audiobookstore.com/isbn/9798217418312?ref=PRHEFFDF5A7F1" target="_blank" rel="noopener">audiobookstore.com</a></li>
+              <li><a href="https://barnesandnoble.sjv.io/c/128773/1894547/22009?subId1=PRHEFFDF5A7F1&amp;u=https%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D2940201694838" target="_blank" rel="noopener">Barnes &amp; Noble</a></li>
+              <li><a href="https://www.tkqlhce.com/click-8373827-15034133?sid=PRHEFFDF5A7F1&amp;url=https%3A%2F%2Fwww.chirpbooks.com%2Fisbn%2F9798217418312" target="_blank" rel="noopener">Chirp</a></li>
+              <li><a href="https://play.google.com/store/audiobooks/details?id=ISBN_9798217418312&amp;PAffiliateID=1011ld4r&amp;PCamRefID=PRHEFFDF5A7F1" target="_blank" rel="noopener">Google Play</a></li>
+              <li><a href="https://click.linksynergy.com/link?id=VD9*lkiWNd8&amp;offerid=258185.12829781935712206&amp;type=2&amp;u1=PRHEFFDF5A7F1--9798217418312&amp;murl=https%3A%2F%2Fwww.kobo.com%2Fsearch%3Fquery%3D9798217418312" target="_blank" rel="noopener">Kobo</a></li>
+              <li><a href="https://libro.fm/audiobooks/9798217418312?prhc=PRHEFFDF5A7F1" target="_blank" rel="noopener">Libro.fm</a></li>
+              <li><a href="https://open.spotify.com/show/1GRhzVZobHnCjaliSwHaKt" target="_blank" rel="noopener">Spotify</a></li>
+            </ul>
+          </div>
+          <p class="preorder__all"><a href="https://www.penguinrandomhouse.com/books/824243/the-way-we-left-things-by-sabrina-fielding/" target="_blank" rel="noopener">All formats at Penguin Random House &rarr;</a></p>
         </div>
       </div>
     </section>
@@ -94,13 +145,13 @@
     <p class="footer__name">Sabrina Fielding</p>
     <nav class="footer__links" aria-label="Footer">
       <a href="#novel">The Novel</a>
-      <a href="work.html">Other Work</a>
       <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="work.html">Other Work</a>
+      <a href="contact.html">Contact &amp; Events</a>
     </nav>
     <p class="footer__small"><em>The Way We Left Things</em> &middot; Ballantine Books &middot; Thousand Voices &middot; June 15, 2027</p>
   </footer>
 
-  <script src="site.js"></script>
+  <script src="site.js?v=13"></script>
 </body>
 </html>

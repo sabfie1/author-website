@@ -166,10 +166,10 @@
       <path d="${front}" fill="url(#${id}-rock)"/>
       <path d="M1470 1010 C1500 950 1560 912 1640 896 C1690 886 1740 882 1790 884" fill="none" stroke="${p.rock[0]}" stroke-width="4" opacity=".7"/>
       <path d="${juniper}" fill="${p.pine}"/>
-      <g fill="${p.figure}">${sitter(1264, 676)}</g>
     </g>
     <g transform="translate(1500 638) scale(.42)">${pine(rand, p.pine, id)}</g>`;
   }
+
 
   function clouds(rand, p, { n, x0, x1, y0, y1, rx, ry }) {
     let s = "";
@@ -335,7 +335,6 @@
   </g>
   <g class="ripples" fill="none" stroke="${p.cloud[0]}"></g>
   ${outcrop(p, rng(61), id)}
-  ${variant === "hero" ? figure(o, id) : ""}
 
   <rect x="-300" y="-900" width="2200" height="2000" filter="url(#${id}-streaks)" opacity=".2" style="mix-blend-mode:soft-light"/>
 </svg>`;
